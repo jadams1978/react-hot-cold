@@ -7,7 +7,7 @@ import {
 const initialState = {
     guesses: [],
     feedback: 'Make your guess!',
-    correctAnswer: Math.floor(Math.random() * 100) + 1,
+    correctAnswer: Math.floor(Math.random() * 100),
     showInfoModal: false
 };
 
@@ -16,6 +16,7 @@ export default (state, action) => {
     if (action.type === NEW_GAME) {
         state = Object.assign({
         }, initialState, {
+            fewestGuesses: state.fewestGuesses,
             correctAnswer: action.correctAnswer
         });
         return state;
